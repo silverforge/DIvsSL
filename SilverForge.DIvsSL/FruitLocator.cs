@@ -14,12 +14,25 @@ namespace SilverForge.DIvsSL
 		private readonly IUnityContainer _container = new UnityContainer();
 
 		/// <summary>
+		/// Private instance of <see cref="FruitLocator"/> 
+		/// </summary>
+		private readonly static FruitLocator instance = new FruitLocator();
+
+		/// <summary>
 		/// Constructor of <see cref="FruitLocator"/>
 		/// </summary>
-		public FruitLocator()
+		private FruitLocator()
 		{
 			_container.RegisterType<IApple, Apple>();
 			_container.RegisterType<IBanana, Banana>();
+		}
+
+		/// <summary>
+		/// The sigleton instance of <see cref="FruitLocator"/>
+		/// </summary>
+		public static FruitLocator Instance
+		{
+			get { return instance; }
 		}
 
 		/// <summary>

@@ -13,8 +13,9 @@ namespace SilverForge.DIvsSL
 			Console.WriteLine("DI Taste : {0}", doIt);
 
 			// Service locator
-			var fruitLocator = new FruitLocator();
-			var mixer2 = new Mixer(fruitLocator.GetApple(), fruitLocator.GetBanana());
+			var fruitLocator = FruitLocator.Instance;
+			//var mixer2 = new Mixer(fruitLocator.GetApple(), fruitLocator.GetBanana());
+			var mixer2 = new Mixer(fruitLocator.Get<IApple>(), fruitLocator.Get<IBanana>());
 			var doIt2 = mixer2.DoIt();
 			Console.WriteLine("SL Taste : {0}", doIt2);
 
