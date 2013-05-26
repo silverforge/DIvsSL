@@ -6,7 +6,7 @@ namespace SilverForge.DIvsSL
 	/// <summary>
 	/// Sample implememtation of Service locator
 	/// </summary>
-	public class FruitLocator
+	public sealed class FruitLocator
 	{
 		/// <summary>
 		/// The container
